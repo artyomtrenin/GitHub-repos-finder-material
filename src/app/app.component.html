@@ -1,0 +1,24 @@
+<div>
+  <mat-toolbar color="primary">
+    <span>GitHub repos-finder</span>
+    <mat-form-field style="text-align: center">
+          <input matInput #login (keydown.enter)="clickButton(login)" type="text" value="artyomtrenin">
+          <button class="cent" mat-raised-button #but color="accent" (click)="getData(login.value)">Find</button>
+    </mat-form-field>
+  </mat-toolbar>
+</div>
+
+<div *ngIf="userIsFound; else noUser">
+  <app-profile [user]="user">
+  </app-profile>
+  <app-repos
+    *ngFor="let iterRep of repos; let idx = index"
+    [rep]="iterRep"
+    [index]="idx+1"
+  ></app-repos>
+</div>
+
+<ng-template #noUser>
+  <p><strong>User is not found</strong></p>
+  <p>Try to find another user</p>
+</ng-template>

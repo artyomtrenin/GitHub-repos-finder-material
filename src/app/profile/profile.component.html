@@ -1,0 +1,11 @@
+  <mat-card>
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image" [ngStyle]="{'background-image': 'url(' + user.avatar_url + ')'}"></div>
+      <mat-card-title>{{user.userName}}</mat-card-title>
+      <mat-card-subtitle>{{user.Name}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p><strong>Count of public repositories:</strong> {{user.countOfRepos}}</p>
+      <p><strong>Link: </strong><a [href]="user.html_url" target="_blank">View the user's page</a></p>
+    </mat-card-content>
+  </mat-card>
